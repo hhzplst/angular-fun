@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="broken">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div ng-controller="MainController">
+    {{view.message}}
+    <div ng-if="number === 42">
+        Secret Message: <input type="text" ng-model="view.message">
+    </div>
+  </div>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script>
+    var app = angular.module("broken",[]);
+    app.controller('MainController', function($scope, $rootScope) {
+      $scope.number = 42;
+      $rootScope.view = {};
+    });
+  </script>
+</body>
+</html>

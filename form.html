@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="form">
+<head>
+  <meta charset="UTF-8">
+  <title>Form</title>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div ng-controller="formCtrl">
+    <div class="col-md-8 col-md-offset-2">
+      <h1>Here are our users {{arr}}</h1>
+      <p ng-show="bootstrapForm.$invalid">{{bootstrapForm.$error}}</p>
+      <form name="bootstrapForm" novalidate ng-submit="signUp(data)">
+        <div class="form-group" ng-class="{'has-error':bootstrapForm.username.$invalid && bootstrapForm.username.$dirty, 'has-success':bootstrapForm.username.$valid}">
+          <label for="username" class="control-label">Username</label>
+          <input type="text" id="username" name="username" ng-model="data.username" class="form-control" ng-required="true" ng-pattern="/^[a-zA-Z0-9]{3,12}$/">
+          <p ng-show="bootstrapForm.username.$error"></p>
+        </div>
+        <div class="form-group" ng-class="{'has-error':bootstrapForm.password.$invalid && bootstrapForm.password.$dirty, 'has-success':bootstrapForm.password.$valid}">
+          <label for="password" class="control-label">Password</label>
+          <input type="text" id="password" name="password" ng-required="true" ng-model="data.password" class="form-control">
+        </div>
+        <div class="form-group" ng-class="{'has-error':bootstrapForm.email.$invalid && bootstrapForm.email.$dirty, 'has-success':bootstrapForm.email.$valid}">
+          <label for="email" class="control-label">Email</label>
+          <input type="email" id="email" name="email" ng-required="true" ng-model="data.email" class="form-control">
+        </div>
+        <div class="form-group" ng-class="{'has-error':bootstrapForm.zipcode.$invalid && bootstrapForm.zipcode.$dirty, 'has-success':bootstrapForm.zipcode.$valid}">
+          <label for="zipcode" class="control-label">Zip Code</label>
+          <input type="text" id="zipcode" name="zipcode" ng-model="data.zipcode" class="form-control" ng-pattern="/^[0-9]{5}$/" ng-required="true">
+        </div>
+        <input type="submit" class="btn btn-info" >
+      </form>    
+    </div>
+  </div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
+  <script>
+    var app = angular.module("form", []);
+    app.controller("formCtrl", function($scope){
+      $scope.arr = [];
+      $scope.signUp = function(){
+        $scope.arr.push($scope.data);
+        $scope.data = {};
+      };
+    });
+  </script>
+</body>
+</html>

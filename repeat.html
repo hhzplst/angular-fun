@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>ng-repeat</title>
+</head>
+<body>
+  <div ng-controller="MyController">
+    <ul>
+      <li ng-repeat="symbol in symbols">
+        <p ng-bind-html="symbol"></p>
+      </li>
+    </ul> 
+
+    <ul>
+      <li ng-repeat="number in numbers track by $index">
+        <p ng-bind-html="number"></p>
+      </li>
+    </ul>      
+  
+  </div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-sanitize.min.js"></script>
+  <script>
+    var app = angular.module("myApp", ["ngSanitize"]);
+    app.controller("MyController", function($scope){
+      $scope.symbols = ["&spades;", "&clubs;", "&hearts;", "&diams;"];
+      $scope.numbers = [1,1,2,5,6,9,9,9];
+    });
+  </script>
+</body>
+</html>

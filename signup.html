@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up Form</title>
+  <style>
+    .red{
+      color:red;
+    }
+    .green{
+      color:green;
+    }
+  </style>
+</head>
+<body>
+  <h3>Sign Up Page</h3>
+  <div ng-controller="SignUpController">
+    <form action="#" ng-class="{red: data.password.length<6, green: data.password.length>6}">
+      <input type="password" ng-model="data.password">
+      <p>Your password is {{data.password.length}} characters</p>
+      <p ng-hide="data.password.length > 6">Invalid</p>
+      <input type="submit" ng-show="(data.password.length | number) > 6">
+    </form>    
+  </div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+</body>
+</html>

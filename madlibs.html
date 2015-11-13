@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Mad Libs</title>
+</head>
+<body>
+  <h3>Please fill out the following!</h3>
+  <hr>
+  <div ng-controller="myController">
+    <form name="myForm" action="#" ng-submit= "gatherData()">
+      <label for="">Boy's Name</label><br>
+      <input type="text" ng-model="data.boyName"><br><br>
+      <label for="">Adjective</label><br>
+      <input type="text" ng-model="data.adjective"><br><br>
+      <label for="">Plural Noun</label><br>
+      <input type="text" ng-model="data.pluralNoun1"><br><br>
+      <label for="">Plural Noun</label><br>
+      <input type="text" ng-model="data.pluralNoun2"><br><br>
+      <label for="">An insect, plural</label><br>
+      <input type="text" ng-model="data.pluralInsect"><br><br>
+      <label for="">Plural Noun</label><br>
+      <input type="text" ng-model="data.pluralNoun3"><br><br>
+      <label for="">A verb ending in "s"</label><br>
+      <input type="text" ng-model="data.verb"><br><br>
+      <input type="submit" ng-disabled="myForm.$invalid">
+    </form>
+    <br><br>
+    <h2>Mad with the Libs</h2><hr>
+    <h3>I'm in love with <span>{{result.boyName|uppercase}}</span>. He's so <span>{{result.adjective|uppercase}}</span>! He has big flat <span>{{result.pluralNoun1|uppercase}}</span>, and when our <span>{{result.pluralNoun2|uppercase}}</span> meet, I get <span>{{result.pluralInsect|uppercase}}</span> in my stomach. I've fallen for him like a ton of <span>{{result.pluralNoun3|uppercase}}</span>, and he <span>{{result.verb|uppercase}}</span> for me, too. But I think he's got another girlfriend. What should I do?</h3>
+  </div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="con">
+<head>
+  <meta charset="UTF-8">
+  <title>Controller</title>
+</head>
+<body>
+  <div ng-controller="myCon">
+    <h3>My Favorite Color is {{FavColor}}</h3><br>
+    <h3>Seconds in a Century is {{secondsInACentury | number}}</h3>
+    <h3>{{date | date:'EEEE, MMM dd, yyyy'}}</h3>
+  </div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
+  <script>
+    var app = angular.module("con", []);
+    app.controller("myCon", function($scope){
+      $scope.FavColor = "green";
+      $scope.secondsInACentury = 60*60*24*365.25*100;
+      $scope.date = new Date();
+    });
+  </script>
+</body>
+</html>

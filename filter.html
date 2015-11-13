@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+  <meta charset="UTF-8">
+  <title>Filters</title>
+</head>
+<body>
+  <h3>{{ 3.3249793857 | currency:"€":0 }}</h3>
+  <br>
+  <h3>Please Say Something:</h3>
+  <input type="text" ng-model="name">
+  <p>Yelling: {{name | uppercase}}</p>
+  <p>Whispering: {{name | lowercase}}</p>
+  <br>
+  <p>{{3.14159265359 | number:3}}</p>
+  <p>{{3.14159265359 | number:6}}</p>
+  <p>{{3.14159265359 | number:1}}</p>
+  <br>
+  <h3>How many digits of pi do you want
+  <select name="" id="" ng-model="digit" ng-init="digit=1">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+  </select></h3>
+  <p>Here you go! The first {{digit}} <ng-pluralize count="digit" when="{'1': 'digit', 'other': 'digits'}">
+  </ng-pluralize> of pi!</p>
+  <p>{{3.14159265359 | number: digit }}</p>
+  <br>
+  <h3>Super Userful Tip Calculator</h3>
+  <p>How much did your meal cost? <input type="text" ng-model="mealCost" ng-init="mealCost=0"></p>
+  <p>How much do you want to tip?</p>
+  <select name="" id="" ng-model="tip" ng-init="tip=0">
+    <option value="0.1">10%</option>
+    <option value="0.15">15%</option>
+    <option value="0.2">20%</option>
+  </select>
+  <h4>Subtotal: {{ mealCost--mealCost*tip | currency }} </h4>
+  <h4>Tip: {{mealCost*tip | currency}}</h4>
+  <br>
+
+  <br>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
+</body>
+</html>
