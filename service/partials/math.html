@@ -1,0 +1,20 @@
+<h2>Mini Calculator!</h2>
+<form ng-submit="cal(operation, data.first, data.second)">
+  <select name="operation" ng-model="operation">
+    <option value="{{operation}}" ng-repeat="operation in operations">{{operation}}</option>
+  </select>
+
+  <div class="">
+    <label for="first">First: </label>
+    <input type="number" ng-model="data.first">
+  </div>
+
+  <div class="">
+    <label for="second">Second: </label>
+    <input type="number" ng-model="data.second">
+  </div>
+
+  <input type="submit" value="Calculate!">
+</form>
+
+<h2>The value is {{result}}</h2>
