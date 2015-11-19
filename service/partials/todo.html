@@ -1,0 +1,25 @@
+<div class="col-md-8 col-md-offset-2">
+  <h3>Todo List</h3>
+  <form name="todoform" ng-submit="addTodo(data)" novalidate>
+    <div class="form-group" ng-class="{'has-error':todoform.name.$invalid && todoform.name.$dirty, 'has-success':todoform.name.$valid}">
+      <label for="todo"></label>
+      <input type="text" ng-model="data.name" name="name" class="form-control" ng-required="true">
+      <p ng-show="todoform.name.$invalid && todoform.name.$dirty">This field is required</p>
+    </div>
+    <input type="submit" value="Add Todo" ng-disabled="todoform.$invalid" class="btn btn-info form-control">
+  </form>
+
+  <div class="showTodos">
+    <div ng-repeat="todo in todos track by $index" class="eachTodo">
+      {{todo.name}}
+      <button ng-click="showEditToggle(todo)" class="btn btn-success">Edit this Todo </button>
+      <button class="btn btn-danger" ng-click="deleteTodo($index)">X</button>
+      <form ng-show="todo.showEdit" ng-submit="editTodo($index, update)" name="editForm">
+        <div class="form-group">
+          <input type="text" ng-model="update.name" name="editname">
+          <input type="submit" class="btn btn-default" value="update">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

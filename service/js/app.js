@@ -4,6 +4,10 @@ app.config(["$routeProvider", function($routeProvider){
   $routeProvider
     .when("/math", {
       templateUrl: "partials/math.html",
-      controller:"MathController"
+      controller: "MathController"
+    })
+    .when("/todo", {
+      templateUrl: "partials/todo.html",
+      controller: "TodoController"
     });
 }]);

@@ -17,3 +17,22 @@ app.service("mathService", function(){
     }
   };
 });
+
+app.service("todoService", function(){
+  var todos = [];
+  return {
+    allTodos: function(){
+      return todos;
+    },
+    add:  function(todo){
+      todos.push(todo);
+    },
+    edit: function(index, todo){
+      todos[index] = todo;
+      todo.showEdit = false;
+    },
+    delete: function(index){
+      todos.splice(index,1);
+    }
+  };
+});
