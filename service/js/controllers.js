@@ -9,6 +9,7 @@ app.controller("MathController", ["$scope", "mathService", function($scope, math
 app.controller("TodoController", ["$scope", "todoService", function($scope, todoService){
   $scope.form = {};
   $scope.todos = todoService.allTodos();
+  
   $scope.showEditToggle = function(todo){
     todo.showEdit = !todo.showEdit;
   };
